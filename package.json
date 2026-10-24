@@ -1,0 +1,41 @@
+{
+  "name": "aegis-stp",
+  "version": "0.1.0",
+  "description": "Situation, Target, Proposal: append-only, evidence-grounded engineering reviews that live in the repo.",
+  "keywords": ["aegis", "stp", "situation-target-proposal", "design-review", "developer-tools", "cli", "mcp"],
+  "author": "Tracey Prutch",
+  "license": "MIT",
+  "type": "module",
+  "files": ["dist/src", "docs", "README.md", "LICENSE"],
+  "bin": {
+    "aegis-stp": "dist/src/cli.js",
+    "aegis-stp-mcp": "dist/src/mcp-server.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && vitest run",
+    "dev": "tsx src/cli.ts",
+    "mcp": "node dist/src/mcp-server.js",
+    "mcp:qa": "npm run build && node scripts/mcp-qa.mjs",
+    "package:vscode": "npm run build && node scripts/package-vscode.mjs",
+    "check": "npm test && npm run mcp:qa && npm run package:vscode",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "commander": "^12.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@vscode/vsce": "^3.6.0",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^4.1.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5DSSG-Dev/AEGIS_STP_WORKFLOW_SYSTEM.git"
+  }
+}

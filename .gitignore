@@ -1,0 +1,6 @@
+node_modules/
+dist/
+coverage/
+vscode-extension/cli-dist/
+*.vsix
+*.log

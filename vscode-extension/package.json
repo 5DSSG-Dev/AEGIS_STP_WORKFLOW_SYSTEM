@@ -1,0 +1,395 @@
+{
+  "name": "aegis-stp-vscode",
+  "displayName": "AEGIS STP",
+  "description": "Situation, Target, Proposal in the editor: always know which STP you are in, its stage, what is established, and what is open.",
+  "version": "0.1.0",
+  "publisher": "thelight1122",
+  "license": "MIT",
+  "icon": "media/aegis-stp-icon.png",
+  "keywords": [
+    "aegis",
+    "stp",
+    "design-review",
+    "totem",
+    "situation-target-proposal",
+    "cursor",
+    "open-vsx"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/5DSSG-Dev/AEGIS_STP_WORKFLOW_SYSTEM.git",
+    "directory": "vscode-extension"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./extension.js",
+  "files": [
+    "extension.js",
+    "README.md",
+    "LICENSE",
+    "media/aegis-stp-icon.png",
+    "media/stp.svg",
+    "cli-dist"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "aegisStp.refresh",
+        "title": "Refresh",
+        "category": "STP",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "aegisStp.new",
+        "title": "New STP",
+        "category": "STP",
+        "icon": "$(add)"
+      },
+      {
+        "command": "aegisStp.use",
+        "title": "Use STP (make active)",
+        "category": "STP",
+        "icon": "$(pinned)"
+      },
+      {
+        "command": "aegisStp.resume",
+        "title": "Show Resume Card",
+        "category": "STP",
+        "icon": "$(compass)"
+      },
+      {
+        "command": "aegisStp.board",
+        "title": "Show Board",
+        "category": "STP",
+        "icon": "$(layout)"
+      },
+      {
+        "command": "aegisStp.openFile",
+        "title": "Open STP File",
+        "category": "STP",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "aegisStp.validate",
+        "title": "Validate",
+        "category": "STP",
+        "icon": "$(shield)"
+      },
+      {
+        "command": "aegisStp.addFinding",
+        "title": "Add Situation Finding",
+        "category": "STP",
+        "icon": "$(search)"
+      },
+      {
+        "command": "aegisStp.citeSelection",
+        "title": "Cite Selection as Evidence",
+        "category": "STP",
+        "icon": "$(quote)"
+      },
+      {
+        "command": "aegisStp.addTarget",
+        "title": "Add Target Item",
+        "category": "STP",
+        "icon": "$(star-full)"
+      },
+      {
+        "command": "aegisStp.addMilestone",
+        "title": "Add Milestone",
+        "category": "STP",
+        "icon": "$(milestone)"
+      },
+      {
+        "command": "aegisStp.addGap",
+        "title": "Add Gap",
+        "category": "STP",
+        "icon": "$(debug-disconnect)"
+      },
+      {
+        "command": "aegisStp.propose",
+        "title": "Propose Change",
+        "category": "STP",
+        "icon": "$(git-pull-request-draft)"
+      },
+      {
+        "command": "aegisStp.addDecision",
+        "title": "Record Decision",
+        "category": "STP",
+        "icon": "$(law)"
+      },
+      {
+        "command": "aegisStp.addNote",
+        "title": "Add Note",
+        "category": "STP",
+        "icon": "$(note)"
+      },
+      {
+        "command": "aegisStp.present",
+        "title": "Present Change",
+        "category": "STP",
+        "icon": "$(megaphone)"
+      },
+      {
+        "command": "aegisStp.approve",
+        "title": "Approve Change (Architect)",
+        "category": "STP",
+        "icon": "$(pass)"
+      },
+      {
+        "command": "aegisStp.execute",
+        "title": "Start Executing Change",
+        "category": "STP",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "aegisStp.verify",
+        "title": "Verify Change (Architect)",
+        "category": "STP",
+        "icon": "$(verified-filled)"
+      },
+      {
+        "command": "aegisStp.decline",
+        "title": "Decline Change",
+        "category": "STP",
+        "icon": "$(circle-slash)"
+      },
+      {
+        "command": "aegisStp.supersede",
+        "title": "Revise (Supersede) Entry",
+        "category": "STP",
+        "icon": "$(history)"
+      },
+      {
+        "command": "aegisStp.showLineage",
+        "title": "Show Lineage",
+        "category": "STP",
+        "icon": "$(git-commit)"
+      },
+      {
+        "command": "aegisStp.setStage",
+        "title": "Change Stage",
+        "category": "STP",
+        "icon": "$(arrow-right)"
+      },
+      {
+        "command": "aegisStp.distill",
+        "title": "Distill into Totem",
+        "category": "STP",
+        "icon": "$(beaker)"
+      },
+      {
+        "command": "aegisStp.copyMcpConfig",
+        "title": "Copy MCP Config for Agents",
+        "category": "STP",
+        "icon": "$(copy)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "aegisStp",
+          "title": "AEGIS STP",
+          "icon": "media/stp.svg"
+        }
+      ]
+    },
+    "views": {
+      "aegisStp": [
+        {
+          "id": "aegisStpView",
+          "name": "STPs",
+          "icon": "media/stp.svg"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "aegisStpView",
+        "contents": "No STP in this workspace yet. An STP keeps a review in three spaces: Situation, Target, Proposal.\n[Open a New STP](command:aegisStp.new)",
+        "when": "!aegisStp.hasStp"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "aegisStp.new",
+          "when": "view == aegisStpView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "aegisStp.resume",
+          "when": "view == aegisStpView && aegisStp.hasStp",
+          "group": "navigation@2"
+        },
+        {
+          "command": "aegisStp.board",
+          "when": "view == aegisStpView && aegisStp.hasStp",
+          "group": "navigation@3"
+        },
+        {
+          "command": "aegisStp.refresh",
+          "when": "view == aegisStpView",
+          "group": "navigation@4"
+        },
+        {
+          "command": "aegisStp.validate",
+          "when": "view == aegisStpView && aegisStp.hasStp",
+          "group": "more@1"
+        },
+        {
+          "command": "aegisStp.copyMcpConfig",
+          "when": "view == aegisStpView",
+          "group": "more@2"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "aegisStp.use",
+          "when": "view == aegisStpView && viewItem == stp",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.resume",
+          "when": "view == aegisStpView && viewItem =~ /^stp/ && viewItem =~ /active/",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.use",
+          "when": "view == aegisStpView && viewItem == stp",
+          "group": "1@1"
+        },
+        {
+          "command": "aegisStp.openFile",
+          "when": "view == aegisStpView && viewItem =~ /^stp(.active)?$/",
+          "group": "1@2"
+        },
+        {
+          "command": "aegisStp.setStage",
+          "when": "view == aegisStpView && viewItem == stp.active",
+          "group": "1@3"
+        },
+        {
+          "command": "aegisStp.addFinding",
+          "when": "view == aegisStpView && viewItem == stpSection.Situation",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.addTarget",
+          "when": "view == aegisStpView && viewItem == stpSection.Target",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.addMilestone",
+          "when": "view == aegisStpView && viewItem == stpSection.Target",
+          "group": "1@1"
+        },
+        {
+          "command": "aegisStp.addGap",
+          "when": "view == aegisStpView && viewItem == stpSection.Gaps",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.propose",
+          "when": "view == aegisStpView && viewItem == stpSection.Proposal",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.addDecision",
+          "when": "view == aegisStpView && viewItem == stpSection.Proposal",
+          "group": "1@1"
+        },
+        {
+          "command": "aegisStp.addNote",
+          "when": "view == aegisStpView && viewItem == stpSection.Notes",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.propose",
+          "when": "view == aegisStpView && viewItem == stpItem.gap",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.present",
+          "when": "view == aegisStpView && viewItem == stpItem.change.Drafted",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.approve",
+          "when": "view == aegisStpView && viewItem == stpItem.change.Presented",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.execute",
+          "when": "view == aegisStpView && viewItem == stpItem.change.Approved",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.verify",
+          "when": "view == aegisStpView && viewItem == stpItem.change.Executing",
+          "group": "inline"
+        },
+        {
+          "command": "aegisStp.decline",
+          "when": "view == aegisStpView && viewItem =~ /^stpItem.change.(Drafted|Presented|Approved)$/",
+          "group": "2@1"
+        },
+        {
+          "command": "aegisStp.distill",
+          "when": "view == aegisStpView && viewItem =~ /^stpItem.(decision|change.(Approved|Executing|Verified))$/",
+          "group": "2@2"
+        },
+        {
+          "command": "aegisStp.supersede",
+          "when": "view == aegisStpView && viewItem =~ /^stpItem./ && !(viewItem =~ /(Verified|Declined)$/)",
+          "group": "3@1"
+        },
+        {
+          "command": "aegisStp.showLineage",
+          "when": "view == aegisStpView && viewItem =~ /^stpItem./",
+          "group": "3@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "aegisStp.citeSelection",
+          "when": "editorHasSelection && resourceScheme == file",
+          "group": "9_stp@1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "aegisStp.citeSelection",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AEGIS STP",
+      "properties": {
+        "aegisStp.actor": {
+          "type": "string",
+          "default": "",
+          "description": "Your name on STP entries. Empty uses git user.name or the OS user."
+        },
+        "aegisStp.postToTotem": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "When AEGIS Totem is set up in the repo, post a short pointer to the aegis-stp lane on STP creation, stage changes, and approvals or verifications."
+        },
+        "aegisStp.cliPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional path to an aegis-stp CLI (cli.js or command). Empty uses the CLI bundled with the extension."
+        }
+      }
+    }
+  }
+}
