@@ -3,7 +3,7 @@
   "displayName": "AEGIS STP",
   "description": "Situation, Target, Proposal in the editor: always know which STP you are in, its stage, what is established, and what is open.",
   "version": "0.1.0",
-  "publisher": "thelight1122",
+  "publisher": "DigitalMindTripAI",
   "license": "MIT",
   "icon": "media/aegis-stp-icon.png",
   "keywords": [
