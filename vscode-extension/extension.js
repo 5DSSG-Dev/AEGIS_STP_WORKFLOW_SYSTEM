@@ -57,7 +57,7 @@ function cliInvocation() {
 
 /** Lets STP post pointers through the Totem extension's bundled CLI when no global aegis-totem exists. */
 function totemCliEnv() {
-  const totem = vscode.extensions.getExtension("thelight1122.aegis-totem-vscode");
+  const totem = vscode.extensions.getExtension("DigitalMindTripAI.aegis-totem-vscode");
   const bundled = totem ? path.join(totem.extensionPath, "cli-dist", "src", "cli.js") : undefined;
   return bundled && fs.existsSync(bundled) && !process.env.AEGIS_TOTEM_CLI ? { AEGIS_TOTEM_CLI: bundled } : {};
 }

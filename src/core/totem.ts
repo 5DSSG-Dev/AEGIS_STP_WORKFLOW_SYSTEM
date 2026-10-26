@@ -39,7 +39,7 @@ export function findTotemCli(): string[] | null {
   for (const base of [join(homedir(), ".vscode", "extensions"), join(homedir(), ".cursor", "extensions"), join(homedir(), ".vscode-oss", "extensions")]) {
     if (!existsSync(base)) continue;
     const found = readdirSync(base)
-      .filter((name) => name.toLowerCase().startsWith("thelight1122.aegis-totem-vscode-"))
+      .filter((name) => name.toLowerCase().startsWith("digitalmindtripai.aegis-totem-vscode-"))
       .sort()
       .reverse()
       .map((name) => join(base, name, "cli-dist", "src", "cli.js"))
