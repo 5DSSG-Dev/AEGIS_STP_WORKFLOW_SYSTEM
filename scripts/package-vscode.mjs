@@ -20,7 +20,7 @@ writeFileSync(join(bundledCliDir, "package.json"), JSON.stringify({ type: "modul
 mkdirSync(join(bundledCliDir, "node_modules"), { recursive: true });
 cpSync(join(root, "node_modules", "commander"), join(bundledCliDir, "node_modules", "commander"), { recursive: true });
 
-const result = spawnSync(process.execPath, [vsceBin, "package", "--out", packagePath], { cwd: extensionDir, stdio: "inherit", shell: false });
+const result = spawnSync(process.execPath, [vsceBin, "package", "--no-dependencies", "--out", packagePath], { cwd: extensionDir, stdio: "inherit", shell: false });
 rmSync(bundledCliDir, { recursive: true, force: true });
 if (result.error) console.error(result.error.message);
 if (result.status !== 0) process.exit(result.status ?? 1);
