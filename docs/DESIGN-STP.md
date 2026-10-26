@@ -43,7 +43,7 @@ The Totem's own lesson, "publication readiness is not the same as publication", 
 
 - Where STP records should live: in the repo under review, or in a central place.
 - Whether several STPs run at once (one per review area), and how they relate.
-- Which repo is the Vibe Architect IDE. `AEGIS_VIBE_ARCHITECT_DEVELOPERS_KIT` was the IDE repo; it was renamed on 2026-10-20 to \`thelight1122/Vibe-Architect-Developer-IDE\`.
+- Which repo is the Vibe Architect IDE.
 - Resolved 2026-10-20: the Vibe Architect IDE is VS Code based, so STP can run inside it.
 
 ## Target
