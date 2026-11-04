@@ -2,7 +2,7 @@
   "name": "aegis-stp-vscode",
   "displayName": "AEGIS STP",
   "description": "Situation, Target, Proposal in the editor: always know which STP you are in, its stage, what is established, and what is open.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "DigitalMindTripAI",
   "license": "MIT",
   "icon": "media/aegis-stp-icon.png",
