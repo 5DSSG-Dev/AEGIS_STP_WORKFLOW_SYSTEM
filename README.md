@@ -1,6 +1,13 @@
 # AEGIS STP
 
 **Situation, Target, Proposal: append-only, evidence-grounded engineering reviews that live in the repo.**
+Latest Release
+v0.1.2
+
+Updated branding and extension icon
+OpenVSX package refreshed
+npm package updated
+Packaging improvements
 
 When engineering work runs long, decisions get buried in chat. Resuming after an interruption then means piecing the discussion back together. STP keeps a review's structure in the repo and in the editor instead. At a glance you can see which STP you are in, what stage it is at, what has been established, and what is still open.
 
