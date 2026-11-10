@@ -1,6 +1,6 @@
 {
   "name": "aegis-stp",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Situation, Target, Proposal: append-only, evidence-grounded engineering reviews that live in the repo.",
   "keywords": ["aegis", "stp", "situation-target-proposal", "design-review", "developer-tools", "cli", "mcp"],
   "author": "Tracey Prutch",
