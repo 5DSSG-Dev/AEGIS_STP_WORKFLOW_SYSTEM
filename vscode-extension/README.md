@@ -1,5 +1,12 @@
 # AEGIS STP for VS Code
 
+Latest Release
+v0.1.2
+Updated AEGIS STP extension branding and icon
+Published OpenVSX release v0.1.2
+Improved extension packaging configuration
+Removed obsolete packaging references
+
 Situation, Target, Proposal in the editor. At a glance you can see which STP you are in, its stage, what has been established, and what is still open.
 
 - **Status bar:** shows the active STP and its stage, plus a count of uncovered gaps. Click it for the resume card.
