@@ -28,8 +28,7 @@
     "extension.js",
     "README.md",
     "LICENSE",
-    "media/aegis-stp-icon.png",
-    "cli-dist"
+    "media/aegis-stp-icon.png"
   ],
   "activationEvents": [
     "onStartupFinished"
